@@ -1,0 +1,10 @@
+[package]
+name = "hephaestus"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+winapi = { version="0.3.9", features=["winuser"] }
