@@ -28,7 +28,7 @@ Build the C extension for Python using the following command:
 python3 setup.py build_ext --inplace
 ```
 
-This will produce a `.pyd` file (a Python dynamic library) in the build directory.
+This will produce a `.pyd` file (a Python dynamic library) in the project directory.
 
 ### 3. Prepare the Execution Directory
 
