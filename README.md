@@ -35,12 +35,12 @@ This will produce a `.pyd` file (a Python dynamic library) in the project direct
 Move the necessary files to the `execution` directory:
 
 - Copy the compiled DLL from `target/release` to `execution/.`
-- Copy the `.pyd` file from the build output to `execution/.`
+- Copy the `.pyd` file from the project directory to `execution/.`
 
 Ensure the following files are present in the `execution` directory (these may already be provided):
 
 - `hephaestus.dll`
-- `injector.cp312-win_amd64.pyd`
+- `injector.cp313-win_amd64.pyd`
 - `main.py`
 
 ### 4. Run the Python Script
@@ -57,7 +57,7 @@ This will:
 - Inject the compiled DLL into its thread
 - Execute the Rust payload
 
-> ⚠️ By default, the Rust code displays a MessageBox. You may modify the Rust source to implement custom functionality as required.
+> ⚠️ By default, the Rust code displays a MessageBox after waiting for 3 seconds. You may modify the Rust source to implement custom functionality as required.
 
 ## 🛠️ Installation Script Overview
 
@@ -69,7 +69,7 @@ A PowerShell script is included to automate setup, dependency retrieval, and per
 Creates a clean working directory under `%LOCALAPPDATA%` and removes any existing files.
 
 - **Python Installation**
-Installs Python 3.12.8 silently if not already present in the expected location.
+Installs Python 3.13.3 silently if not already present in the expected location.
 
 - **File Download**
 Fetches the required files (`client.pyw`, `.pyd` module, and `core.dll`) from a remote server.

